@@ -1,0 +1,15 @@
+
+<ion-header >
+
+  <ion-navbar color="primary" text-center>
+    <ion-title >Sedes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-item *ngFor= "let data of data_edi " (click)="goMap({data:data})" >
+   {{data.edificio}} 
+</ion-item>
+</ion-content>
