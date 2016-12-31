@@ -20,27 +20,6 @@ export class SedesPage {
 
   }
 
-
-/*   ionViewDidLoad() {
-
-
-    
-   this.Servicio.edificios().then(data =>{
-      
-          var datos = [];
-
-          for (var obj = 0; obj < data.length; obj++){
-              var info = data[obj];
-                datos.push(info);
-
-
-              
-          }
-                this.data_edi = datos;
-               
-    })
-  }*/
-
   goMap(datos){
     this.navCtrl.push(MapPage,{data:datos.data});
 

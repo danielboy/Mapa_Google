@@ -31,7 +31,6 @@ export class MapPage {
     this.tel = params.data.data.telefono;
     this.ios = 'http://maps.apple.com?addr=Current%20Location&daddr='+ this.lat +',' + this.lon;
     this.android = 'http://maps.google.com?addr=Current%20Location&daddr='+ this.lat +',' + this.lon;
-    //this.android = 'geo:'+ this.lat +',' + this.lon;
 
 
   }
@@ -45,6 +44,17 @@ export class MapPage {
             
     });
 
+   if (this.platform.is('android')) {
+      window.location.href = this.android;
+
+   }
+   if (this.platform.is('ios')) { 
+      window.location.href = this.ios;
+         
+   } else {
+     console.log('Información no disponible')
+   }    
+
   }
 
   ionViewDidEnter(){
@@ -52,23 +62,5 @@ export class MapPage {
     this.maps.addMarker(this.lat, this.lon, this.edificio, this.dom, this.tel);
 
   }
-
-  llegar(){
-
-    console.log(this.platform.is,'platform')
-     
-   if (this.platform.is('android')) {
-        window.location.href = this.android;
-        console.log('es android')
-   }
-   if (this.platform.is('ios')) {
-      console.log('es ios', this.ios)  
-      window.location.href = 'http://maps.apple.com?addr=Current%20Location&daddr='+ this.lat +',' + this.lon;;
-         
-   } else {
-     console.log('Información no disponible')
-   }
-
-}
 
 }
